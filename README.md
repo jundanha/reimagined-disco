@@ -56,17 +56,17 @@ Body (Raw JSON) :
 This endpoint will return an `access_token`. Save the `access_token` to used other endpoints.
 
 #### 3. Get All Posts
-Method : GET
-URL : `http://localhost:3000/posts`
+Method : GET  
+URL : `http://localhost:3000/posts`  
 
 #### 4. Get Post by ID
-Method : GET
-URL : `http://localhost:3000/posts/:id`
+Method : GET  
+URL : `http://localhost:3000/posts/:id`  
 
 #### 5. Create A New Post
-Method : POST
-URL : `http://localhost:3000/posts`
-Header (Authorization) : Bearer `access_token`
+Method : POST  
+URL : `http://localhost:3000/posts`  
+Header (Authorization) : Bearer `access_token`  
 Body (Raw JSON) :
 ```
 {
@@ -75,9 +75,9 @@ Body (Raw JSON) :
 ```
 
 #### 6. Edit A Post
-Method : POST
-URL : `http://localhost:3000/posts/:id`
-Header (Authorization) : Bearer `access_token`
+Method : POST  
+URL : `http://localhost:3000/posts/:id`  
+Header (Authorization) : Bearer `access_token`  
 Body (Raw JSON) :
 ```
 {
@@ -87,6 +87,6 @@ Body (Raw JSON) :
 
 
 #### 7. Delete A Post
-Method : GET
-Header (Authorization) : Bearer `access_token`
-URL : `http://localhost:3000/posts/:id`
+Method : GET  
+Header (Authorization) : Bearer `access_token`  
+URL : `http://localhost:3000/posts/:id`  
