@@ -20,12 +20,19 @@ export class AuthService {
   }
 
   async login(loginUserDto: LoginUserDto) {
-    const user = await this.usersService.findByEmail(loginUserDto.email);
+    const user = await this.validateUser(
+      loginUserDto.email,
+      loginUserDto.password,
+    );
     if (!user) {
       throw new UnauthorizedException('Invalid credentials');
     }
-
-    const payload = { username: user.email, sub: user.id };
+    // console.log('user: ', user.dataValues.id);
+    // console.log('user: ', user.dataValues.email);
+    const payload = {
+      username: user.dataValues.email,
+      sub: user.dataValues.id,
+    };
     return {
       access_token: this.jwtService.sign(payload),
     };

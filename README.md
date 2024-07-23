@@ -21,7 +21,8 @@ $ npm run start
 
 ## Using Docker
 You can also use docker to run the app.
-Run this command on the terminal.
+1. Open the docker-compose.yaml, and change the environment variable
+2. Run this command on the terminal.
 
 ```bash
 $ docker-compose up --build
@@ -89,4 +90,4 @@ Body (Raw JSON) :
 #### 7. Delete A Post
 Method : GET  
 Header (Authorization) : Bearer `access_token`  
-URL : `http://localhost:3000/posts/:id`  
+URL : `http://localhost:3000/posts/:id`   

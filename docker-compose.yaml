@@ -1,13 +1,12 @@
-version: '3.8'
-
 services:
   # MySQL Database
   mysql:
-    image: mysql:5.7
-    ports:
-      - "3307:3306"
+    image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
     volumes:
-      - mysql-data:/var/lib/mysql
+      - ./data/init.sql:/data/init.sql
+    command: --init-file /data/init.sql
 
   # NestJS Application
   app:
@@ -16,12 +15,14 @@ services:
       - "3000:3000"
     depends_on:
       - mysql
+    restart: on-failure
     environment:
       DB_HOST: mysql
-      DB_PORT: 1234
-      DB_USERNAME: nolimit-task
-      DB_PASSWORD: nolimit-task1
+      DB_PORT: 3306
+      DB_USERNAME: root
+      DB_PASSWORD: admin
       DB_NAME: blog
+      JWT_SECRET: 123456
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules 
